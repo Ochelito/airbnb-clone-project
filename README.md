@@ -32,24 +32,12 @@ Authentication & Authorization: Custom login, registration, and role-based permi
 Data Protection: Validation, form sanitization, and CSRF protection.
 Error Handling & Logging: Robust exception handling with informative messages and logging.
 
-6. Additional Advanced Features
+6. Advanced Features
 Host and Guest dashboards with analytics (bookings, reviews, earnings).
 Listing photo upload and management with media storage.
 Reviews and ratings system for hosts and guests.
 Search and filter functionality based on location, price, availability, and amenities.
 Optional email notifications for booking confirmations and reminders.
-
-Learning Outcomes:
-By completing this project, learners will gain expertise in:
-Full-stack web development with Django and DRF.
-Designing and optimizing complex relational databases.
-Implementing secure, scalable APIs for real-world applications.
-Integrating frontend templates with dynamic backend data.
-Understanding application workflows, booking logic, and real-world feature implementation.
-Collaborative project management, preparing for team-based software development scenarios.
-
-End Result:
-A production-ready Airbnb-like platform demonstrating full-stack proficiency, scalable architecture, secure authentication, and advanced Django capabilities suitable for professional portfolios or real-world deployment.
 
 Team Roles
 The success of a complex project like the Airbnb Clone relies on clear team roles and responsibilities. Below is an overview of the key roles within the project team and their contributions:
@@ -100,3 +88,37 @@ Responsibilities:
   - Manages server setup, deployment pipelines, and cloud infrastructure.  
   - Ensures scalability, performance, and uptime of the application.  
   - Monitors application health, handles updates, and implements CI/CD processes. 
+
+Technology Stack
+The Airbnb Clone Project leverages a modern full-stack technology stack to build a scalable, secure, and feature-rich booking platform. Below is an overview of the technologies used and their purpose in the project:
+
+Backend & Frameworks
+-Django: A high-level Python web framework used to build the server-side logic, manage database interactions, handle routing, and implement authentication and authorization.  
+-Django REST Framework (DRF): Extends Django to create RESTful APIs for CRUD operations, filtering, searching, and user interactions.  
+
+Database
+-PostgreSQL/MySQL: A robust relational database system used to store structured data such as Users, Listings, Bookings, Reviews, and Amenities. Supports complex queries, indexing, and scalability.  
+-SQLite (optional for development): Lightweight database used during development and testing phases.  
+
+Frontend
+-Django Templates: Used to render dynamic HTML pages with data from the backend.  
+-Bootstrap / Tailwind CSS: CSS frameworks used to design responsive and visually appealing layouts.  
+-JavaScript: Provides interactivity on the frontend, including dynamic booking forms, modals, and AJAX requests for smoother UX.  
+
+APIs & Communication
+-RESTful APIs: Serve as the communication layer between the frontend and backend, enabling data retrieval and manipulation.  
+-AJAX: Facilitates asynchronous requests, allowing parts of pages to update without a full reload.  
+
+Authentication & Security
+-Django Authentication System: Handles user registration, login, logout, and password management.  
+-JWT / Token Authentication: Secures API endpoints by restricting access based on user roles.  
+-CSRF Protection: Safeguards against cross-site request forgery attacks.  
+
+DevOps & Deployment 
+-Docker: Containerizes the application for consistent deployment across environments.  
+-Heroku / AWS / DigitalOcean: Cloud platforms to host the web application and database.  
+-Git & GitHub: Version control system for collaborative development and code management.  
+
+Additional Tools
+-Pillow: Python imaging library used for image uploads and processing (e.g., listing photos).  
+-Celery / Redis: Handles asynchronous tasks like sending booking confirmation emails or notifications.  
