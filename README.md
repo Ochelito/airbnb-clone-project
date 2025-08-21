@@ -227,4 +227,26 @@ Securing the backend APIs is a critical aspect of the Airbnb Clone Project to pr
   -Importance: Ensures confidentiality and integrity of user and payment data.
 
 6. Rate Limiting & Throttling
-  - Implementation: APIs are protected with request limits per user/IP to prevent abuse and brute-for
+  -Implementation: APIs are protected with request limits per user/IP to prevent abuse and brute-force attacks.  
+  -Purpose: Ensures fair usage and prevents system overload.  
+  -Importance: Protects application resources and maintains performance under heavy or malicious traffic.
+
+7. Secure Payment Handling
+  -Implementation: Payment-related endpoints validate transactions and use secure methods for sensitive information (e.g., tokenized credit cards, third-party payment gateways).  
+  -Purpose: Safeguards financial transactions.  
+  -Importance: Protects users’ financial data and prevents fraudulent bookings.
+
+CI/CD Pipeline
+A CI/CD (Continuous Integration / Continuous Deployment) pipeline is a set of automated processes that enable developers to build, test, and deploy code efficiently and reliably. For the Airbnb Clone Project, a CI/CD pipeline ensures that changes made by team members are integrated smoothly, tested automatically, and deployed safely to the production environment.
+
+Importance for the Project
+  -Automated Testing: Ensures that new features or bug fixes do not break existing functionality. All API endpoints, bookings, and user workflows can be automatically validated.  
+  -Faster Deployment: New features, updates, or bug fixes can be deployed to staging or production with minimal manual intervention.  
+  -Consistency: Reduces human errors during deployment, ensuring that the application works consistently across environments.  
+  -Collaboration: Helps multiple developers work on the same codebase by automatically integrating and testing code from different branches.  
+
+Recommended Tools
+  -GitHub Actions: Automates workflows such as running tests, building the project, and deploying to servers.  
+  -Docker: Provides consistent development and production environments by containerizing the application.  
+  -Heroku / AWS / DigitalOcean:** Cloud platforms for deploying the application and its database.  
+  -Postman / Pytest:** For automated API testing during the pipeline process.  
