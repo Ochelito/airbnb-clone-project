@@ -122,3 +122,77 @@ DevOps & Deployment
 Additional Tools
 -Pillow: Python imaging library used for image uploads and processing (e.g., listing photos).  
 -Celery / Redis: Handles asynchronous tasks like sending booking confirmation emails or notifications.  
+
+Database Design
+The Airbnb Clone Project uses a relational database to store and manage structured data for users, properties, bookings, and reviews. Below is an overview of the key entities, their important fields, and relationships.
+
+1. Users
+Fields:  
+  - `id` (Primary Key)  
+  - `username` (unique identifier)  
+  - `email` (unique, used for login and notifications)  
+  - `password` (hashed for security)  
+  - `role` (e.g., Guest, Host, Admin)  
+Relationships:
+  - A user can own multiple properties (one-to-many).  
+  - A user can have multiple bookings (one-to-many).  
+  - A user can write multiple reviews (one-to-many).  
+
+2. Properties / Listings
+Fields: 
+  - `id` (Primary Key)  
+  - `title` (name of the property)  
+  - `description` (details about the property)  
+  - `location` (city, country)  
+  - `price_per_night` (decimal)  
+  - `host` (ForeignKey to Users)  
+Relationships: 
+  - A property belongs to a single host (many-to-one).  
+  - A property can have multiple bookings (one-to-many).  
+  - A property can have multiple reviews (one-to-many).  
+  - A property can have multiple amenities (many-to-many).  
+
+3. Bookings
+Fields: 
+  - `id` (Primary Key)  
+  - `property` (ForeignKey to Properties)  
+  - `guest` (ForeignKey to Users)  
+  - `start_date` (booking start date)  
+  - `end_date` (booking end date)  
+  - `status` (e.g., Pending, Confirmed, Cancelled)  
+  - `total_price` (calculated based on duration and property price)  
+Relationships:  
+  - A booking belongs to a single property.  
+  - A booking belongs to a single guest.  
+
+4. Reviews
+Fields: 
+  - `id` (Primary Key)  
+  - `property` (ForeignKey to Properties)  
+  - `user` (ForeignKey to Users)  
+  - `rating` (1-5 stars)  
+  - `comment` (text feedback)  
+  - `created_at` (timestamp)  
+Relationships:  
+  - A review belongs to a property.  
+  - A review belongs to a user.  
+
+5. Payments
+Fields:  
+  - `id` (Primary Key)  
+  - `booking` (ForeignKey to Bookings)  
+  - `amount` (decimal)  
+  - `payment_method` (e.g., Credit Card, PayPal)  
+  - `status` (e.g., Paid, Pending, Failed)  
+  - `payment_date` (timestamp)
+Relationships:
+  - A payment belongs to a single booking.  
+
+Entity Relationship Summary
+- User - Properties: One-to-Many (A host can have multiple properties)  
+- User - Bookings: One-to-Many (A guest can make multiple bookings)  
+- Property - Bookings: One-to-Many (A property can have multiple bookings)  
+- Property - Reviews: One-to-Many (A property can have multiple reviews)  
+- User - Reviews: One-to-Many (A user can write multiple reviews)  
+- Property - Amenities: Many-to-Many (Properties can have multiple amenities)  
+- Booking - Payments: One-to-One (Each booking has one payment record, or optional One-to-Many if partial payments are supported)  
