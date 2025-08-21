@@ -197,3 +197,34 @@ Optional email notifications for booking confirmations and reminders.
  
 - Property - Amenities: Many-to-Many (Properties can have multiple amenities)  
 - Booking - Payments: One-to-One (Each booking has one payment record, or optional One-to-Many if partial payments are supported)  
+
+API Security
+Securing the backend APIs is a critical aspect of the Airbnb Clone Project to protect sensitive user data, booking information, and payment transactions. Below are the key security measures implemented in the project:
+
+1. Authentication
+  -Implementation: Uses Django’s built-in authentication system with username/email and password, extended with JWT (JSON Web Tokens) for API endpoints.  
+  -Purpose: Ensures that only registered users can access protected endpoints.  
+  -Importance: Prevents unauthorized access to user accounts, bookings, and personal data.
+
+2. Authorization
+  -Implementation: Role-based access control (RBAC) for different user types such as Guest, Host, and Admin. Permissions are enforced on API endpoints to restrict actions.  
+  -Purpose: Ensures that users can only perform actions allowed for their role.  
+  -Importance: Protects sensitive operations, e.g., only hosts can edit their property listings, and only guests can book properties.
+
+3. Data Validation & Input Sanitization
+  -Implementation: All incoming data is validated using Django forms or DRF serializers. Inputs are sanitized to prevent SQL injection, XSS, and other attacks.  
+  -Purpose: Ensures data integrity and security.  
+  -Importance: Prevents malicious users from injecting harmful data that could compromise the application or database.
+
+4. CSRF Protection
+  -Implementation: Enabled for all forms and sensitive API requests.  
+  -Purpose: Protects against Cross-Site Request Forgery attacks, where malicious sites attempt to perform actions on behalf of authenticated users.  
+  -Importance: Safeguards user sessions and prevents unauthorized bookings or data changes.
+
+5. HTTPS & Secure Communication
+  -Implementation: Application is deployed over HTTPS to encrypt data in transit between clients and server.  
+  -Purpose: Prevents interception of sensitive information, such as passwords and payment details.  
+  -Importance: Ensures confidentiality and integrity of user and payment data.
+
+6. Rate Limiting & Throttling
+  - Implementation: APIs are protected with request limits per user/IP to prevent abuse and brute-for
